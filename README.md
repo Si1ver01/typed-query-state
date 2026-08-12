@@ -9,6 +9,15 @@
 npm install @ddanshin/typed-query-state
 ```
 
+Для React adapter установите React отдельно:
+
+```bash
+npm install @ddanshin/typed-query-state react react-dom
+```
+
+Требуется Node.js `>=24.18.0`. React integration поддерживает React `18` и `19`.
+Опубликованная версия доступна в npm под тегом `latest`.
+
 ## Быстрый старт
 
 ```ts
