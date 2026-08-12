@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Run validation without publishing or creating a release'
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@1e60f620b9541dca1e4f5e3cddc5b7c6f8f2d5e8
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm run release:check-tag -- "$GITHUB_REF_NAME"
+        if: github.event_name == 'push' || inputs.dry_run == false
+      - run: npm run verify
+
+  publish:
+    if: github.event_name == 'push' || inputs.dry_run == false
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@1e60f620b9541dca1e4f5e3cddc5b7c6f8f2d5e8
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm publish --provenance --access public
+      - uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631
+        with:
+          body_path: RELEASE_NOTES.md
