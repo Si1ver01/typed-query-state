@@ -1,5 +1,5 @@
-import { enumCodec, numberCodec } from '@ddanshin94/typed-query-state/codecs';
-import { useQueryState, useQueryStates } from '@ddanshin94/typed-query-state/react';
+import { enumCodec, numberCodec } from '@si1ver01/typed-query-state/codecs';
+import { useQueryState, useQueryStates } from '@si1ver01/typed-query-state/react';
 
 const sortCodec = enumCodec(['newest', 'popular'] as const);
 

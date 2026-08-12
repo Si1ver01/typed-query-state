@@ -42,7 +42,7 @@ try {
     [
       '--input-type=module',
       '-e',
-      "await import('@ddanshin94/typed-query-state'); await import('@ddanshin94/typed-query-state/codecs'); await import('@ddanshin94/typed-query-state/react');",
+      "await import('@si1ver01/typed-query-state'); await import('@si1ver01/typed-query-state/codecs'); await import('@si1ver01/typed-query-state/react');",
     ],
     { cwd: fixture, stdio: 'ignore' },
   );
@@ -50,7 +50,7 @@ try {
     process.execPath,
     [
       '-e',
-      "require('@ddanshin94/typed-query-state'); require('@ddanshin94/typed-query-state/codecs'); require('@ddanshin94/typed-query-state/react');",
+      "require('@si1ver01/typed-query-state'); require('@si1ver01/typed-query-state/codecs'); require('@si1ver01/typed-query-state/react');",
     ],
     { cwd: fixture, stdio: 'ignore' },
   );
