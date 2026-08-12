@@ -1,5 +1,5 @@
 {
-  "name": "@si1ver01/typed-query-state",
+  "name": "@ddanshin/typed-query-state",
   "version": "0.1.0",
   "description": "Type-safe URL query state for browser applications and React.",
   "license": "MIT",

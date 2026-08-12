@@ -1,4 +1,4 @@
-# `@si1ver01/typed-query-state`
+# `@ddanshin/typed-query-state`
 
 Типобезопасная синхронизация состояния интерфейса с URL query parameters без ручного `URLSearchParams`.
 Пакет не имеет production runtime dependencies; React adapter подключается отдельным entrypoint.
@@ -6,14 +6,14 @@
 ## Установка
 
 ```bash
-npm install @si1ver01/typed-query-state
+npm install @ddanshin/typed-query-state
 ```
 
 ## Быстрый старт
 
 ```ts
-import { numberCodec } from '@si1ver01/typed-query-state';
-import { useQueryState } from '@si1ver01/typed-query-state/react';
+import { numberCodec } from '@ddanshin/typed-query-state';
+import { useQueryState } from '@ddanshin/typed-query-state/react';
 
 const [page, setPage, resetPage] = useQueryState('page', numberCodec, {
   defaultValue: 1,
