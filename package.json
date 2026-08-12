@@ -3,6 +3,10 @@
   "version": "0.1.3",
   "description": "Type-safe URL query state for browser applications and React.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Si1ver01/typed-query-state"
+  },
   "type": "module",
   "private": false,
   "sideEffects": false,
